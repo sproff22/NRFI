@@ -1,3 +1,5 @@
+# Convert to notebook form to best analyze different models
+
 import statsmodels.api as sm
 from sklearn.model_selection import train_test_split
 pd.set_option('display.max_columns', None)
