@@ -1,3 +1,5 @@
+#Individual variables in pybaseball.statcast may change year by year
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
