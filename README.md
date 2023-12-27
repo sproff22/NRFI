@@ -22,3 +22,5 @@ NOTE: Predictions are set to be made by the user in the code. Variables are set 
 ## Outcome
 
 When tracked through the first four months of the 2023 MLB season (including regular data updates), the model performed adequately, with an accuracy rate of 61%. Using the predictions module, users can compare the model's predicted odds of a NRFI (No Run First Inning) with Vegas's implied odds given the odds on any public sportsbook. If a user chose to bet $100 on every game with a >5% difference between model odds and Vegas odds, they would have made a total of $3,400 in that timeframe.
+
+
