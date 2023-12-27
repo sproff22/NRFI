@@ -1,4 +1,6 @@
-mport statsmodels.api as sm
+# Switch to notebook for easiest model analysis
+
+import statsmodels.api as sm
 from sklearn.model_selection import train_test_split
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
