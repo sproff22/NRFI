@@ -16,3 +16,5 @@ Model Evaluation - Evaluating expected accuracy of the tuned model
 Predictions - Using user inputs to allow for predictions on new data
 
 NOTE: Because data can change as more games are played, decisions made here may not apply for months or seasons in the future. Change models and hyperperameters as necessary. 
+
+NOTE: Predictions are set to be made by the user in the code. Variables are set to allow for easier deployment to a GUI or web app if desired.
