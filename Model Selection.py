@@ -55,16 +55,16 @@ ridge_reg.fit(X_train, y_train)
 y_pred = ridge_reg.predict(X_test)
 
 mse = mean_squared_error(y_test, y_pred)
-print("Mean Squared Error:", mse)
-print("RMSE:",math.sqrt(mse))
+print("Ridge Reg Mean Squared Error:", mse)
+print("Ridge Reg RMSE:",math.sqrt(mse))
 r2 = r2_score(y_test, y_pred)
-print("R Square:", r2)
+print("Ridge Reg R Square:", r2)
 
 print(y_pred[:10])
-print("mean runs predicted:",y_pred.mean())
-print("maximum runs predicted:", y_pred.max())
+print("Ridge Reg mean runs predicted:",y_pred.mean())
+print("Ridge Reg maximum runs predicted:", y_pred.max())
 
-print("minimum:",y_pred.min())
+print("Ridge Reg minimum:",y_pred.min())
 
 # Bayes Classifier
 
@@ -78,7 +78,7 @@ nb_clf.fit(X_train_nb, y_train_nb)
 
 # Evaluate the performance of the classifier on the test data
 accuracy = nb_clf.score(X_test_nb, y_test_nb)
-print('Accuracy:', accuracy)
+print('Bayes Classifier Accuracy:', accuracy)
 
 y_prob = nb_clf.predict_proba(model_df_log.drop(columns = ['run_first_inning_yes']))[:,:1]
 nb_test_df = model_df_log
@@ -104,15 +104,15 @@ accuracy_xgbc = (cm_xgbc[0,0] + cm_xgbc[1,1]) / np.sum(cm_xgbc)
 precision_xgbc = cm_xgbc[0,0] / (cm_xgbc[0,0] + cm_xgbc[1,0])
 recall_xgbc = cm_xgbc[0,0] / (cm_xgbc[0,0] + cm_xgbc[0,1])
 f1_score_xgbc = 2 * (precision_xgbc * recall_xgbc) / (precision_xgbc + recall_xgbc)
-print("acuracy:",accuracy_xgbc)
-print("precision:",precision_xgbc)
-print("recall:",recall_xgbc)
-print("f1 score:",f1_score_xgbc)
+print("XG Boost -- Classifier acuracy:",accuracy_xgbc)
+print("XG Boost -- Classifier precision:",precision_xgbc)
+print("XG Boost -- Classifier recall:",recall_xgbc)
+print("XG Boost -- Classifier f1 score:",f1_score_xgbc)
 
 xgb_class_prob_test = xgb_class.predict_proba(model_df.drop(columns = ['run_first_inning_yes','hitting_runs']))[:,:1]
 
-print("overall predicted mean:",xgb_class_prob_test.mean())
-print("true mean:",model_df['run_first_inning_yes'].mean())
+print("XG Boost -- Classifier overall predicted mean:",xgb_class_prob_test.mean())
+print("XG Boost -- Classifier true mean:",model_df['run_first_inning_yes'].mean())
 
 print(xgb_class_prob_test)
 
@@ -133,9 +133,9 @@ accuracy_dt = accuracy_score(y_test_dt, y_pred_dt)
 cm_dt = confusion_matrix(y_test_dt, y_pred_dt)
 
 # Print the best depth, accuracy score, and confusion matrix
-print("Best depth:", best_depth)
-print("Accuracy:", accuracy_dt)
-print("Confusion matrix:")
+print("DECISION TREE CLASSIFIER Best depth:", best_depth)
+print("DECISION TREE CLASSIFIER Accuracy:", accuracy_dt)
+print("DECISION TREE CLASSIFIER Confusion matrix:")
 print(cm_dt)
 
 print(y_prob_dt[:5])
@@ -160,18 +160,18 @@ print(predictions_rf[:5])
 # Compute the confusion matrix
 cm_rf = confusion_matrix(y_test_rf, test_preds_rf)
 
-print("confusion matrix:",
+print("Random Forest confusion matrix:",
       cm_rf)
 accuracy_rf = (cm_rf[0,0] + cm_rf[1,1]) / np.sum(cm_rf)
 precision_rf = cm_rf[0,0] / (cm_rf[0,0] + cm_rf[1,0])
 recall_rf = cm_rf[0,0] / (cm_rf[0,0] + cm_rf[0,1])
 f1_score_rf = 2 * (precision_rf * recall_rf) / (precision_rf + recall_rf)
-print("acuracy:",accuracy_rf)
-print("precision:",precision_rf)
-print("recall:",recall_rf)
-print("f1 score:",f1_score_rf)
+print("Random Forest acuracy:",accuracy_rf)
+print("Random Forest precision:",precision_rf)
+print("Random Forest recall:",recall_rf)
+print("Random Forest f1 score:",f1_score_rf)
 
-print("mean probability:", predictions_rf.mean())
+print("Random Forest mean probability:", predictions_rf.mean())
 
 plt.hist(predictions_rf)
 plt.show()
